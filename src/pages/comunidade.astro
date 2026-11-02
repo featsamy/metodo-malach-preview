@@ -1,0 +1,37 @@
+---
+import Logo from '../components/Logo.astro';
+import '../styles/global.css';
+
+const communityUrl = 'https://chat.whatsapp.com/E0zNdZSVs6sIf3vlpr8yMv?s=cl&p=a&ilr=1';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b2821" />
+    <meta name="description" content="Entre na comunidade gratuita do Método Malach." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Comunidade Método Malach</title>
+  </head>
+  <body>
+    <main class="relative grid min-h-dvh place-items-center overflow-hidden bg-forest-deep px-4 py-10 text-cream">
+      <div aria-hidden="true" class="absolute -left-28 -top-28 h-80 w-80 rounded-full border border-gold/20"></div>
+      <div aria-hidden="true" class="absolute -bottom-44 -right-32 h-[30rem] w-[30rem] rounded-full border border-gold/15"></div>
+      <div class="grain pointer-events-none absolute inset-0 opacity-20"></div>
+
+      <section class="relative w-full max-w-3xl text-center">
+        <a href="/" class="focusable inline-flex text-gold" aria-label="Voltar para a página inicial do Método Malach">
+          <Logo />
+        </a>
+        <p class="eyebrow mt-12 text-gold">Comunidade Método Malach</p>
+        <h1 class="display mx-auto mt-5 text-[clamp(3rem,9vw,6.5rem)] leading-[.92] text-white">Entre na nossa comunidade exclusiva e gratuita sobre o <em class="font-normal text-gold">Método Malach!</em></h1>
+        <p class="mx-auto mt-7 max-w-xl text-base leading-7 text-cream/70 sm:text-lg">Um espaço para estar mais perto do Método, acompanhar conteúdos e compartilhar essa jornada com a comunidade.</p>
+        <a href={communityUrl} class="focusable mt-9 inline-flex min-h-16 items-center justify-center rounded-full bg-coral px-9 py-4 font-extrabold text-white shadow-[0_18px_35px_rgb(215_101_69/.28)] transition hover:-translate-y-1 hover:bg-[#c95537]">Entrar no grupo <span aria-hidden="true" class="ml-3">→</span></a>
+        <p class="mt-5 text-xs text-cream/50">Você será direcionado ao grupo no WhatsApp.</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+  compact?: boolean;
+}
+const { class: className = '', compact = false } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-3', className]} aria-label="Método Malach">
+  <svg aria-hidden="true" viewBox="0 0 48 48" class="h-9 w-9 shrink-0" fill="none">
+    <path d="M24 40V17M24 29c-7-1-11-5-12-12 7 0 11 4 12 12Zm0-7c1-7 5-11 12-12 0 7-4 11-12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 12c-3-3-3-6 0-10 3 4 3 7 0 10Z" fill="currentColor"/>
+    <path d="M9 38h30" stroke="currentColor" stroke-width="1.2"/>
+  </svg>
+  <span class="block leading-none">
+    <span class="block text-[.56rem] font-extrabold tracking-[.3em] opacity-70">MÉTODO</span>
+    <span class:list={['display block font-bold tracking-[-.045em]', compact ? 'text-xl' : 'text-2xl']}>MALACH</span>
+  </span>
+</span>

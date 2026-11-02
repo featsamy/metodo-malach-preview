@@ -1,0 +1,1221 @@
+---
+import { Image } from 'astro:assets';
+import heroKitReal from '../assets/kit-completo-hero.png';
+import kitOpenReal from '../assets/kit-aberto-semanas.png';
+import plantCutReal from '../assets/kit-produto-planta.png';
+import photoComplete from '../assets/DSC01850.jpg';
+import photoHerbs from '../assets/DSC01858.jpg';
+import photoBoxPlant from '../assets/DSC01840.jpg';
+import photoUnboxHorizontal from '../assets/DSC01877.jpg';
+import photoDetailBox from '../assets/DSC01870.jpg';
+import testimonial1 from '../assets/testimonials/depoimento-1.webp';
+import testimonial2 from '../assets/testimonials/depoimento-2.jpeg';
+import testimonial3 from '../assets/testimonials/depoimento-3.webp';
+import testimonial4 from '../assets/testimonials/depoimento-4.webp';
+import testimonialTera from '../../Depoimento-tera.jpeg';
+import Logo from '../components/Logo.astro';
+import '../styles/global.css';
+
+const checkoutUrl = 'https://loja.metodomalach.com.br/produtos/';
+
+// Vídeos reais gravados em formato vertical (UGC / Reels)
+const videoTestimonials = [
+  {
+    src: '/videos/depoimento-1.mp4',
+    name: 'Relato em Vídeo',
+    tag: 'Ansiedade e Mente Acelerada',
+    caption: '“A cabeça finalmente parou de girar. Consegui ter noites de sono que há anos eu não tinha.”'
+  },
+  {
+    src: '/videos/depoimento-2.mp4',
+    name: 'Relato em Vídeo',
+    tag: 'Disposição Diária',
+    caption: '“Acordava já cansado e sem ânimo para nada. O protocolo me devolveu a vontade de viver o dia.”'
+  },
+  {
+    src: '/videos/depoimento-3.mp4',
+    name: 'Relato em Vídeo',
+    tag: 'Calma e Presença',
+    caption: '“Voltei a ter paciência com meus filhos e foco no trabalho, sem aquela agitação no peito.”'
+  }
+];
+
+// Comparativo de Monoproduto (Estilo Ryze Superfoods)
+const comparisonRows = [
+  {
+    criterion: 'Origem dos Ativos',
+    malach: '100% parte nobre vegetal, selecionada à mão',
+    others: 'Fórmulas sintéticas ou partes menos potentes da planta'
+  },
+  {
+    criterion: 'Sensação no Dia a Dia',
+    malach: 'Calma com clareza mental e energia limpa',
+    others: 'Letargia, sonolência diurna ou efeito rebote'
+  },
+  {
+    criterion: 'Risco de Dependência Química',
+    malach: 'Zero. Protocolo vegetal equilibrado',
+    others: 'Frequente risco de tolerância e dependência'
+  },
+  {
+    criterion: 'Tempo de Cuidado e Preparo',
+    malach: 'Quase 60 dias de maturação artesanal por lote',
+    others: 'Processamento ultra-industrializado acelerado'
+  },
+  {
+    criterion: 'Suporte Durante o Uso',
+    malach: 'Guia físico dos 30 dias + suporte atencioso',
+    others: 'Você recebe um pote e se vira sozinho'
+  }
+];
+
+// Provas de WhatsApp complementares
+const imageTestimonials = [
+  testimonial1,
+  testimonial2,
+  testimonial3,
+  testimonial4,
+  testimonialTera
+];
+
+// Perguntas frequentes diretas e sem juridiquês
+const faqs = [
+  {
+    q: 'O que é o Método Malach e para quem ele é indicado?',
+    a: 'O Método Malach é um protocolo natural desenvolvido para quem vive sobrecarregado por ansiedade, depressão, estresse crônico ou mente hiperativa. Usamos exclusivamente a parte nobre de plantas medicinais, maturadas por quase 60 dias, para restaurar o equilíbrio do seu sistema nervoso sem o peso de remédios sintéticos.'
+  },
+  {
+    q: 'O que exatamente chega na minha casa ao comprar o kit?',
+    a: 'Você recebe a caixa do Método Malach com 4 sachês especiais (totalizando o ciclo de 30 dias), acompanhada do Guia Prático com o passo a passo de preparo diário e acesso ao canal de suporte para acompanhar cada etapa da sua evolução.'
+  },
+  {
+    q: 'Será que funciona comigo se eu já tentei outros métodos?',
+    a: 'Sim. A maioria das pessoas que chegam até nós já experimentou chás comuns, cápsulas de farmácia e calmantes que deixavam a mente lenta. O Método Malach age de forma diferente porque concentra apenas os princípios ativos mais puros da planta, sem aditivos químicos que sobrecarregam o organismo.'
+  },
+  {
+    q: 'Como devo tomar na minha rotina?',
+    a: 'O preparo é simples e leva menos de 5 minutos por dia. O protocolo é dividido em 4 etapas conscientes (Fundamento, Ritmo, Constância e Propósito) para acompanhar seu corpo progressivamente ao longo das 4 semanas.'
+  },
+  {
+    q: 'Posso usar junto com meus medicamentos de uso contínuo?',
+    a: 'Sim, o Método Malach é um apoio natural e você não deve interromper nenhum tratamento prescrito por conta própria. Recomendamos manter seu acompanhamento médico normal.'
+  },
+  {
+    q: 'E se eu não sentir resultado? Qual é a garantia?',
+    a: 'Confiamos plenamente na pureza do nosso lote. Se ao longo do protocolo de 30 dias você não sentir o alívio e a transformação no seu bem-estar, basta entrar em contato com nosso suporte para solicitar o reembolso conforme as diretrizes do nosso checkout seguro.'
+  }
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#163a30" />
+    <meta name="description" content="Método Malach — O protocolo vegetal de 30 dias para recuperar a calma, o sono profundo e a disposição." />
+    <meta property="og:title" content="Método Malach — Recupere Sua Calma e Disposição" />
+    <meta property="og:description" content="Protocolo natural da parte nobre da planta para quem convive com ansiedade, mente acelerada e estresse." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+    <title>Método Malach — O Protocolo de 30 Dias para Sua Calma Natural</title>
+  </head>
+  <body class="overflow-x-hidden text-ink antialiased">
+    
+    <!-- AVISO SUPERIOR SUTIL (ESTILO RYZE) -->
+    <div class="bg-forest-deep px-3 py-2 text-center text-[11px] sm:text-xs font-semibold text-cream/90 flex items-center justify-center gap-1.5">
+      <svg class="w-3.5 h-3.5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+        <path d="m3.3 7 8.7 5 8.7-5"/>
+        <path d="M12 22V12"/>
+      </svg>
+      <span>Lote artesanal limitado &bull; Envio com código de rastreio para todo o Brasil</span>
+    </div>
+
+    <!-- CABEÇALHO LIMPO E HUMANO -->
+    <header class="border-b border-forest/10 bg-paper/95 backdrop-blur sticky top-0 z-40">
+      <div class="container-page flex items-center justify-between py-3.5">
+        <Logo class="text-forest scale-95" />
+        <a 
+          data-cta="header" 
+          href={checkoutUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="focusable rounded-full bg-forest px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-cream transition hover:bg-forest-deep sm:text-sm"
+        >
+          Garantir Meu Kit
+        </a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+
+      <!-- HERO EDITORIAL (MOBILE: TÍTULO AO LADO DA IMAGEM EXATAMENTE COMO NO PRINT | DESKTOP: IMAGEM GRANDE À DIREITA) -->
+      <section id="inicio" class="relative bg-paper pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20 border-b border-forest/10 overflow-hidden">
+        <div class="container-page relative min-h-[auto] lg:min-h-[660px] xl:min-h-[700px] flex flex-col justify-center">
+          
+          <div class="relative z-20 reveal py-1 sm:py-2">
+            
+            <!-- 1. Topo: Eyebrow e Prova Social (Sempre no topo antes de tudo) -->
+            <div class="max-w-xl lg:max-w-[68%] xl:max-w-[72%] mb-3 lg:mb-4">
+              <p class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-coral mb-2">
+                CALMA &bull; FOCO &bull; SONO PROFUNDO &bull; EQUILÍBRIO NATURAL
+              </p>
+
+              <div class="flex items-center gap-2">
+                <div class="flex text-amber-500 text-xs sm:text-sm tracking-tight" aria-hidden="true">
+                  ★★★★★
+                </div>
+                <span class="text-[11px] sm:text-xs font-semibold text-forest/80">
+                  Avaliado com 5 estrelas por quem concluiu o protocolo
+                </span>
+              </div>
+            </div>
+
+            <!-- 2. VERSÃO MOBILE (< lg): Título na esquerda contornando a imagem na direita (IDÊNTICO AO SEU PRINT) -->
+            <div class="relative lg:hidden mb-4">
+              <!-- Imagem no Celular: Ancorada na direita com tamanho sob medida -->
+              <div class="absolute right-[-10px] top-0 w-[58%] max-w-[242px] pointer-events-none z-10">
+                <div class="relative w-full">
+                  <div class="absolute inset-0 -m-3 rounded-full bg-sand/60 blur-xl -z-10"></div>
+                  <Image 
+                    src={heroKitReal} 
+                    alt="Kit oficial do Método Malach com planta medicinal e as 4 caixas semanais" 
+                    widths={[360, 500]} 
+                    sizes="58vw" 
+                    format="webp" 
+                    quality={92} 
+                    class="h-auto w-full object-contain drop-shadow-[0_16px_28px_rgba(22,58,48,0.18)]" 
+                    loading="eager"
+                  />
+                </div>
+              </div>
+
+              <!-- Título no Celular: Ocupa a esquerda e altura emparelhada com a imagem -->
+              <div class="relative z-20 w-[60%] pt-1">
+                <h1 class="display text-[2.25rem] sm:text-[2.5rem] leading-[1.22] text-forest font-extrabold tracking-tighter">
+                  Recuperando<br />
+                  sua calma e<br />
+                  <span class="text-coral">disposição</span><br />
+                  <span class="text-coral">diária</span>.
+                </h1>
+              </div>
+            </div>
+
+            <!-- 2. VERSÃO DESKTOP (lg:): Imagem grande no canto direito e título avançando até a folhagem -->
+            <div class="hidden lg:block">
+              <!-- Imagem Desktop: Grande, imponente e ancorada à direita -->
+              <div class="lg:absolute lg:right-[-2%] xl:right-[-1%] lg:bottom-[-8px] lg:w-[64%] xl:w-[60%] max-w-[880px] pointer-events-none z-0 flex justify-end">
+                <div class="relative w-full">
+                  <Image 
+                    src={heroKitReal} 
+                    alt="Kit oficial do Método Malach com planta medicinal e as 4 caixas semanais" 
+                    widths={[700, 1000, 1500]} 
+                    sizes="(min-width: 1024px) 62vw, 95vw" 
+                    format="webp" 
+                    quality={95} 
+                    class="h-auto w-full object-contain drop-shadow-[0_26px_45px_rgba(22,58,48,0.2)]" 
+                    loading="eager"
+                  />
+                </div>
+              </div>
+
+              <!-- H1 Desktop -->
+              <div class="relative z-20 max-w-xl lg:max-w-[68%] xl:max-w-[72%]">
+                <h1 class="display text-[clamp(2.5rem,4.8vw,4.4rem)] leading-[1.04] text-forest font-extrabold">
+                  Recuperando sua calma e <span class="text-coral">disposição diária</span>.
+                </h1>
+              </div>
+            </div>
+
+            <!-- 3. Meio: Parágrafo (no mobile enxuto e direto; no desktop detalhado e editorial) -->
+            <div class="relative z-20 mt-2 sm:mt-4 max-w-xl lg:max-w-[58%] xl:max-w-[61%]">
+              <p class="text-sm sm:text-base lg:text-lg leading-relaxed text-muted">
+                <span class="lg:hidden">O protocolo natural puro que silencia a mente agitada e devolve o sono profundo — sem remédios sintéticos e sem dependência.</span>
+                <span class="hidden lg:inline">Para você que acorda cansado, vive com a mente acelerada e quer voltar a ter paz. O <strong>Método Malach</strong> é um protocolo natural puro de 30 dias feito a partir da parte nobre de plantas medicinais, silenciando a inquietação e devolvendo o seu sono — sem remédios sintéticos e sem dependência.</span>
+              </p>
+            </div>
+
+            <!-- 4. Base: Benefícios e Botão (No mobile pílulas compactas estilo Ryze; no desktop lista completa) -->
+            <div class="relative z-20 mt-3.5 sm:mt-5 max-w-lg lg:max-w-[50%] xl:max-w-[52%]">
+              <!-- Mobile: Pills/Tags compactas horizontais (Estilo Ryze / AG1) -->
+              <div class="flex flex-wrap items-center justify-center gap-2 lg:hidden text-xs font-semibold text-forest">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-forest/5 px-2.5 py-1 border border-forest/10">
+                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  Sono reparador
+                </span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-forest/5 px-2.5 py-1 border border-forest/10">
+                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  Calma sem sonolência
+                </span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-forest/5 px-2.5 py-1 border border-forest/10">
+                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  100% natural
+                </span>
+              </div>
+
+              <!-- Desktop: Lista de Benefícios Diretos com Ícones Naturais -->
+              <div class="hidden lg:block space-y-2.5 text-sm sm:text-base text-forest/90">
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Mente calma e quieta durante o dia, sem sonolência</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Sono reparador da primeira à última hora da noite</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Disposição e paciência para viver presente com sua família</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                  </svg>
+                  <span>100% natural, sem misturas industriais ou substâncias artificiais</span>
+                </div>
+              </div>
+
+              <!-- CTA Principal do Hero -->
+              <div class="mt-4 sm:mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a 
+                  data-cta="hero" 
+                  href={checkoutUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="focusable inline-flex min-h-14 items-center justify-center rounded-full bg-coral px-8 py-3.5 text-center font-bold text-white shadow-warm transition hover:bg-[#c65536] hover:-translate-y-0.5 text-base sm:text-lg w-full sm:w-auto"
+                >
+                  Começar Meu Protocolo
+                </a>
+                <span class="text-xs text-muted text-center sm:text-left flex items-center justify-center sm:justify-start gap-1.5">
+                  <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                  <span>Garantia de 30 dias</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BARRA DE CONFIANÇA (ESTILO MARCAS D2C / RYZE - TRAÇOS DELICADOS) -->
+      <section class="bg-sand/40 border-b border-forest/10 py-7">
+        <div class="container-page">
+          <div class="grid grid-cols-2 gap-6 text-center sm:grid-cols-4 lg:grid-cols-4 items-start">
+            
+            <!-- 1. Origem 100% Natural -->
+            <div class="flex flex-col items-center">
+              <div class="h-10 w-10 flex items-center justify-center text-coral mb-1.5">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 18c6-2 10-6 12-14-8 2-12 6-14 12 0 1 .5 2 2 2Z"/>
+                  <path d="M6 18c-2 2-3 4-3 4"/>
+                  <path d="M9 15l4-4"/>
+                </svg>
+              </div>
+              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Origem 100% Natural</p>
+              <p class="text-xs text-muted mt-0.5">Sem compostos químicos sintéticos</p>
+            </div>
+
+            <!-- 2. Parte Nobre da Planta -->
+            <div class="flex flex-col items-center">
+              <div class="h-10 w-10 flex items-center justify-center text-coral mb-1.5">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22v-9"/>
+                  <path d="M12 13c-2.5-1.5-4.5-1-6 1 0-3.5 2-6 6-6"/>
+                  <path d="M12 9c2.5-1.5 4.5-1 6 1 0-3.5-2-6-6-6"/>
+                  <circle cx="12" cy="4" r="2"/>
+                </svg>
+              </div>
+              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Parte Nobre da Planta</p>
+              <p class="text-xs text-muted mt-0.5">Apenas a porção com maior potência</p>
+            </div>
+
+            <!-- 3. Livre de Dependência -->
+            <div class="flex flex-col items-center">
+              <div class="h-10 w-10 flex items-center justify-center text-coral mb-1.5">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Livre de Dependência</p>
+              <p class="text-xs text-muted mt-0.5">Uso seguro e sem sedação diurna</p>
+            </div>
+
+            <!-- 4. Garantia de 30 Dias -->
+            <div class="flex flex-col items-center">
+              <div class="h-10 w-10 flex items-center justify-center text-coral mb-1.5">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="9" r="6"/>
+                  <path d="m8.5 14.5-1.5 6.5 5-2.5 5 2.5-1.5-6.5"/>
+                  <path d="m10 9 1.5 1.5L14 8"/>
+                </svg>
+              </div>
+              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Garantia de 30 Dias</p>
+              <p class="text-xs text-muted mt-0.5">Satisfação ou seu dinheiro de volta</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- DOBRA DE VÍDEOS VERTICAIS REAIS (ESTILO RYZE REELS / HISTÓRIAS DE CLIENTES) -->
+      <section id="depoimentos-videos" class="py-10 sm:py-12 lg:py-14 bg-paper border-b border-forest/10">
+        <div class="container-page">
+          <div class="reveal max-w-2xl text-center mx-auto">
+            <p class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-coral mb-2">
+              HISTÓRIAS REAIS &bull; SEM FILTRO
+            </p>
+            <h2 class="display text-[2.2rem] sm:text-[clamp(2.4rem,4.5vw,3.4rem)] leading-[1.08] text-forest font-extrabold tracking-tight mt-2">
+              Veja como pessoas reais estão <span class="text-coral">se sentindo</span>.
+            </h2>
+            <p class="mt-2.5 text-base sm:text-lg leading-relaxed text-muted">
+              Relatos espontâneos de quem convivia com o cansaço diário e a mente agitada — e recuperou sua paz com o <strong>Método Malach</strong>.
+            </p>
+          </div>
+
+          <!-- Carrossel de Vídeos Verticais Autênticos -->
+          <div class="mt-6 sm:mt-8">
+            <p class="mb-4 text-xs font-bold text-coral sm:hidden flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+              <span>Deslize para o lado para assistir aos relatos</span>
+            </p>
+            <div class="testimonial-track -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
+              {videoTestimonials.map((v) => (
+                <div class="reveal w-[80vw] shrink-0 snap-center sm:w-auto flex flex-col rounded-3xl bg-sand/30 p-3.5 sm:p-4 border border-forest/10 shadow-card">
+                  <div class="relative overflow-hidden rounded-2xl bg-black aspect-[9/16] w-full max-h-[380px] lg:max-h-[420px] shadow-inner flex items-center justify-center">
+                    <video 
+                      src={v.src} 
+                      controls 
+                      playsinline 
+                      preload="metadata" 
+                      class="h-full w-full object-cover rounded-2xl"
+                    >
+                      Vídeo não suportado.
+                    </video>
+                  </div>
+                  <div class="mt-3.5 px-1">
+                    <span class="inline-block rounded-full bg-forest/10 px-2.5 py-0.5 text-xs font-semibold text-forest">
+                      {v.tag}
+                    </span>
+                    <p class="mt-2 text-sm italic text-forest/90 leading-relaxed font-medium">
+                      {v.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-8 text-center">
+            <a 
+              data-cta="video-banner" 
+              href={checkoutUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="focusable inline-flex min-h-12 items-center justify-center rounded-full bg-forest px-7 py-3 text-sm font-bold text-cream transition hover:bg-forest-deep shadow-sm hover:shadow"
+            >
+              Quero sentir esse alívio na minha rotina
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOBRA EDITORIAL DE IDENTIFICAÇÃO (A CONVERSA SINCERA) -->
+      <section id="identificacao" class="py-10 sm:py-12 lg:py-16 bg-[#f6eee2] border-b border-forest/10 overflow-hidden">
+        <div class="container-page">
+
+          <!-- LAYOUT DESKTOP (PC 27" / Telas Grandes: Galeria orgânica de 5 fotos alinhada à altura do texto à direita) -->
+          <div class="hidden lg:grid lg:grid-cols-[1.18fr_1fr] gap-10 xl:gap-14 items-stretch">
+            
+            <!-- Coluna Esquerda: Galeria Orgânica Estilo Quadros de Parede (Inspirada na referência) -->
+            <div class="reveal relative flex flex-col justify-between h-full">
+              <div class="grid grid-cols-12 gap-3 h-full min-h-[510px]">
+                
+                <!-- Coluna 1 (Esquerda): Foto alta em cima + Foto horizontal embaixo -->
+                <div class="col-span-4 flex flex-col gap-3 h-full">
+                  <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group flex-[1.4]">
+                    <Image 
+                      src={photoBoxPlant} 
+                      alt="Caixa do Método Malach em ambiente natural" 
+                      widths={[320, 480]} 
+                      sizes="18vw" 
+                      format="webp" 
+                      quality={92} 
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                    />
+                    <span class="absolute bottom-2 left-2 rounded-md bg-forest/80 backdrop-blur-sm px-2 py-0.5 text-[10px] font-bold text-cream">
+                      Produção Artesanal
+                    </span>
+                  </div>
+                  <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group flex-1">
+                    <Image 
+                      src={photoUnboxHorizontal} 
+                      alt="Embalagens semanais individuais do protocolo" 
+                      widths={[320, 480]} 
+                      sizes="18vw" 
+                      format="webp" 
+                      quality={92} 
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                    />
+                    <span class="absolute bottom-2 left-2 rounded-md bg-forest/80 backdrop-blur-sm px-2 py-0.5 text-[10px] font-bold text-cream">
+                      4 Semanas
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Coluna 2 (Centro): Foto xícara em cima + Foto detalhe embaixo -->
+                <div class="col-span-4 flex flex-col gap-3 h-full">
+                  <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group flex-1">
+                    <Image 
+                      src={photoHerbs} 
+                      alt="Seleção pura dos princípios ativos botânicos" 
+                      widths={[320, 480]} 
+                      sizes="18vw" 
+                      format="webp" 
+                      quality={92} 
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                    />
+                    <span class="absolute bottom-2 left-2 rounded-md bg-coral/90 backdrop-blur-sm px-2 py-0.5 text-[10px] font-bold text-white">
+                      Princípio Puro
+                    </span>
+                  </div>
+                  <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group flex-[1.4]">
+                    <Image 
+                      src={photoDetailBox} 
+                      alt="Detalhes e acabamento artesanal do kit" 
+                      widths={[320, 480]} 
+                      sizes="18vw" 
+                      format="webp" 
+                      quality={92} 
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                    />
+                    <span class="absolute bottom-2 left-2 rounded-md bg-forest/80 backdrop-blur-sm px-2 py-0.5 text-[10px] font-bold text-cream">
+                      Caixa Rigorosa
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Coluna 3 (Direita): Foto alta completa pegando a altura toda -->
+                <div class="col-span-4 flex flex-col gap-3 h-full">
+                  <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group h-full">
+                    <Image 
+                      src={photoComplete} 
+                      alt="Kit completo do Método Malach com planta e folhas" 
+                      widths={[360, 520]} 
+                      sizes="18vw" 
+                      format="webp" 
+                      quality={92} 
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                    />
+                    <span class="absolute bottom-2 left-2 rounded-md bg-forest/85 backdrop-blur-sm px-2.5 py-0.5 text-[10px] font-bold text-cream">
+                      Kit Completo 30 Dias
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Coluna Direita: Texto Editorial & Sintomas com Alta Vivacidade e Cores -->
+            <div class="reveal flex flex-col justify-center">
+              <div class="inline-flex items-center gap-2 rounded-full bg-coral/10 border border-coral/20 px-3 py-1 w-fit mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-coral animate-pulse"></span>
+                <span class="text-xs font-extrabold uppercase tracking-widest text-coral">VOCÊ RECONHECE ISSO?</span>
+              </div>
+
+              <h2 class="display text-[2.1rem] xl:text-[2.6rem] leading-[1.12] text-forest font-extrabold tracking-tight mt-1">
+                O dia a dia de quem carrega a mente pesada <span class="text-coral">não é preguiça.</span>
+              </h2>
+
+              <p class="mt-2.5 text-sm xl:text-base leading-relaxed text-muted">
+                Quem vê de fora acha que é só descansar no final de semana. Mas quem vive isso na pele conhece bem os sinais:
+              </p>
+
+              <!-- 3 Sintomas com Cards Elegantes, Cores e Números -->
+              <div class="mt-5 space-y-3">
+                <div class="group rounded-2xl bg-white p-3.5 xl:p-4 border border-forest/10 shadow-sm hover:border-coral/40 hover:shadow-md transition flex items-start gap-3.5">
+                  <div class="h-8 w-8 rounded-xl bg-coral/10 text-coral font-black text-xs flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    01
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-forest text-sm xl:text-base">A sensação de já acordar exausto</h3>
+                    <p class="text-xs xl:text-sm text-muted mt-0.5 leading-relaxed">Você dorme 7 ou 8 horas, mas desperta como se não tivesse pregado o olho, sem vontade física nem mental de levantar.</p>
+                  </div>
+                </div>
+
+                <div class="group rounded-2xl bg-white p-3.5 xl:p-4 border border-forest/10 shadow-sm hover:border-coral/40 hover:shadow-md transition flex items-start gap-3.5">
+                  <div class="h-8 w-8 rounded-xl bg-coral/10 text-coral font-black text-xs flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    02
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-forest text-sm xl:text-base">A mente em estado de alerta permanente</h3>
+                    <p class="text-xs xl:text-sm text-muted mt-0.5 leading-relaxed">Mesmo assistindo a um filme ou almoçando com a família, sua cabeça está acelerada planejando problemas que nem aconteceram.</p>
+                  </div>
+                </div>
+
+                <div class="group rounded-2xl bg-white p-3.5 xl:p-4 border border-forest/10 shadow-sm hover:border-coral/40 hover:shadow-md transition flex items-start gap-3.5">
+                  <div class="h-8 w-8 rounded-xl bg-coral/10 text-coral font-black text-xs flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    03
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-forest text-sm xl:text-base">Irritação com pequenas coisas</h3>
+                    <p class="text-xs xl:text-sm text-muted mt-0.5 leading-relaxed">A paciência curta faz você estourar por bobagens com quem mais gosta, gerando culpa logo em seguida.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conclusão e CTA Desktop -->
+              <div class="mt-5 rounded-2xl bg-forest/5 border border-forest/15 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                  <p class="text-xs font-semibold text-coral uppercase tracking-wider">Você não precisa viver no limite</p>
+                  <p class="text-xs xl:text-sm font-bold text-forest mt-0.5">Existe um caminho 100% natural para recuperar sua paz e disposição.</p>
+                </div>
+                <a 
+                  data-cta="identificacao-desktop" 
+                  href={checkoutUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="focusable shrink-0 inline-flex items-center justify-center rounded-full bg-coral hover:bg-[#b84e32] px-6 py-2.5 text-xs xl:text-sm font-bold text-white shadow-sm transition whitespace-nowrap"
+                >
+                  Começar Meu Protocolo &rarr;
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- LAYOUT MOBILE (Preservando altura natural do celular com carrossel dos 3 sinais + foto lifestyle real + CTA) -->
+          <div class="block lg:hidden">
+            <div class="reveal text-left">
+              <div class="inline-flex items-center gap-2 rounded-full bg-coral/10 border border-coral/20 px-3 py-1 mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-coral animate-pulse"></span>
+                <span class="text-xs font-extrabold uppercase tracking-widest text-coral">VOCÊ RECONHECE ISSO?</span>
+              </div>
+              <h2 class="display text-[1.65rem] sm:text-[2.1rem] leading-[1.15] text-forest font-extrabold tracking-tight mt-1">
+                O dia a dia de quem carrega a mente pesada <span class="text-coral">não é preguiça.</span>
+              </h2>
+              <p class="mt-3 text-sm leading-relaxed text-muted">
+                Quem vê de fora acha que é só descansar no final de semana. Mas quem vive isso na pele conhece bem os sinais:
+              </p>
+            </div>
+
+            <!-- Foto Lifestyle Real no Celular -->
+            <div class="reveal mt-5 relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm">
+              <Image 
+                src={photoComplete} 
+                alt="Kit do Método Malach com planta e folhas" 
+                widths={[480, 640]} 
+                sizes="92vw" 
+                format="webp" 
+                quality={92} 
+                class="h-52 w-full object-cover" 
+              />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/80 via-forest/30 to-transparent p-3 pt-6 flex items-center justify-between">
+                <span class="text-xs font-bold text-cream">Fotografia real do Método Malach</span>
+                <span class="rounded bg-coral px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">100% Natural</span>
+              </div>
+            </div>
+
+            <!-- Carrossel de Sintomas no Mobile (Cards elegantes arrastáveis) -->
+            <div class="reveal mt-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-forest">Os 3 principais sinais:</span>
+                <span class="text-xs font-bold text-coral flex items-center gap-1">
+                  Deslize para ver
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+              </div>
+
+              <div class="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <!-- Card 01 -->
+                <div class="w-[78vw] shrink-0 snap-center rounded-2xl bg-white p-4 border border-forest/15 shadow-sm">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="h-6 w-6 rounded-lg bg-coral/10 text-coral font-black text-xs flex items-center justify-center border border-coral/20">01</span>
+                    <h3 class="font-bold text-forest text-sm">Acordar já exausto</h3>
+                  </div>
+                  <p class="text-xs text-muted leading-relaxed">Você dorme 7 ou 8 horas, mas desperta como se não tivesse pregado o olho, sem vontade física nem mental de levantar.</p>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="w-[78vw] shrink-0 snap-center rounded-2xl bg-white p-4 border border-forest/15 shadow-sm">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="h-6 w-6 rounded-lg bg-coral/10 text-coral font-black text-xs flex items-center justify-center border border-coral/20">02</span>
+                    <h3 class="font-bold text-forest text-sm">Alerta permanente</h3>
+                  </div>
+                  <p class="text-xs text-muted leading-relaxed">Mesmo assistindo a um filme ou almoçando com a família, sua cabeça está acelerada planejando problemas futuros.</p>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="w-[78vw] shrink-0 snap-center rounded-2xl bg-white p-4 border border-forest/15 shadow-sm">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="h-6 w-6 rounded-lg bg-coral/10 text-coral font-black text-xs flex items-center justify-center border border-coral/20">03</span>
+                    <h3 class="font-bold text-forest text-sm">Irritação com bobagens</h3>
+                  </div>
+                  <p class="text-xs text-muted leading-relaxed">A paciência curta faz você estourar por ninharias com quem mais ama, gerando uma culpa dolorosa logo em seguida.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conclusão & CTA no Celular -->
+            <div class="reveal mt-6 text-center">
+              <p class="font-bold text-forest text-sm leading-snug">
+                Você não tem que normalizar viver no limite.<br/>Existe um jeito natural de recuperar o controle.
+              </p>
+
+              <div class="mt-4">
+                <a 
+                  data-cta="identificacao-mobile" 
+                  href={checkoutUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-cta focusable flex w-full items-center justify-center rounded-full bg-coral py-4 text-base font-extrabold text-cream shadow-lg hover:bg-[#b84e32] transition"
+                >
+                  Começar Meu Protocolo
+                </a>
+                <div class="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-muted">
+                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                  <span>Garantia de 30 dias com devolução integral</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TABELA COMPARATIVA ESTILO RYZE (MÉTODO MALACH VS OUTROS) -->
+      <section class="section-pad bg-paper border-b border-forest/10">
+        <div class="container-page max-w-4xl">
+          <div class="reveal text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-leaf">Comparação Transparente</span>
+            <h2 class="display text-[clamp(2.2rem,4.5vw,3.6rem)] text-forest font-semibold mt-2">
+              Por que o Método Malach é diferente?
+            </h2>
+            <p class="mt-3 text-base text-muted">
+              Veja a diferença entre tratar seu corpo com respeito botânico versus empilhar soluções passageiras.
+            </p>
+          </div>
+
+          <div class="reveal overflow-hidden rounded-3xl border border-forest/15 bg-white shadow-card">
+            <!-- Cabeçalho da Tabela -->
+            <div class="grid grid-cols-[1.2fr_1fr_1fr] bg-forest p-4 sm:p-5 text-cream font-bold text-xs sm:text-sm uppercase tracking-wider">
+              <div>Critério</div>
+              <div class="text-gold font-extrabold flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 18c6-2 10-6 12-14-8 2-12 6-14 12 0 1 .5 2 2 2Z"/>
+                  <path d="M6 18c-2 2-3 4-3 4"/>
+                </svg>
+                <span>Método Malach</span>
+              </div>
+              <div class="text-cream/60">Outras Tentativas</div>
+            </div>
+
+            <!-- Linhas de Comparação -->
+            <div class="divide-y divide-forest/10 text-xs sm:text-sm">
+              {comparisonRows.map((row) => (
+                <div class="grid grid-cols-[1.2fr_1fr_1fr] items-center p-4 sm:p-5 hover:bg-sand/20 transition">
+                  <div class="font-semibold text-forest pr-2">{row.criterion}</div>
+                  <div class="font-medium text-forest pr-2 flex items-start gap-1.5">
+                    <span class="text-leaf font-bold">✓</span>
+                    <span>{row.malach}</span>
+                  </div>
+                  <div class="text-muted flex items-start gap-1.5">
+                    <span class="text-coral/80 font-bold">✕</span>
+                    <span>{row.others}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- A DOBRA DE OFERTA / UNBOXING REAL (O QUE VEM NA SUA CAIXA) -->
+      <section id="oferta" class="py-8 sm:py-10 lg:py-12 bg-[#fdfaf5] border-b border-forest/10 overflow-hidden">
+        <div class="container-page max-w-5xl">
+          
+          <!-- Cabeçalho da Dobra 5 -->
+          <div class="reveal max-w-2xl text-center mx-auto mb-6 sm:mb-8">
+            <div class="inline-flex items-center gap-2 rounded-full bg-coral/10 border border-coral/20 px-3.5 py-1 mb-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-coral animate-pulse"></span>
+              <span class="text-xs font-extrabold uppercase tracking-widest text-coral">SEU PROTOCOLO COMPLETO &bull; 30 DIAS</span>
+            </div>
+            <h2 class="display text-[1.5rem] sm:text-[2.1rem] lg:text-[2.4rem] leading-[1.15] text-forest font-extrabold tracking-tight mt-1">
+              O que você recebe ao garantir o seu <span class="whitespace-nowrap text-coral">kit hoje</span>.
+            </h2>
+            <p class="mt-2 text-xs sm:text-sm leading-relaxed text-muted">
+              Tudo foi planejado nos mínimos detalhes para transformar sua rotina em um ritual diário simples, prazeroso e 100% natural.
+            </p>
+          </div>
+
+          <!-- LAYOUT DESKTOP (PC 27" / Telas Grandes: Compacto, integrado e sem espaçamento ocioso) -->
+          <div class="hidden lg:grid lg:grid-cols-2 gap-6 xl:gap-8 items-start">
+            
+            <!-- Coluna Esquerda: Showcase do Unboxing Real & As 4 Fases Semanais -->
+            <div class="reveal flex flex-col gap-3">
+              <!-- Foto Principal do Unboxing com Fundo Real -->
+              <div class="relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm group bg-sand/30">
+                <Image 
+                  src={photoUnboxHorizontal} 
+                  alt="A caixa real aberta do Método Malach com as 4 caixas semanais e a mensagem inspiradora" 
+                  widths={[540, 720]} 
+                  sizes="40vw" 
+                  format="webp" 
+                  quality={94} 
+                  class="h-64 xl:h-72 w-full object-cover transition duration-500 group-hover:scale-102" 
+                />
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="rounded-full bg-forest/90 backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-bold text-cream border border-forest/20 shadow-sm">
+                    ✦ Apresentação em Caixa Rígida
+                  </span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/90 via-forest/40 to-transparent p-3 pt-6 text-center">
+                  <p class="text-[11px] xl:text-xs italic text-cream/95 font-medium tracking-wide">
+                    “A natureza nos ensina. A fé nos sustenta. A gratidão nos transforma.”
+                  </p>
+                </div>
+              </div>
+
+              <!-- 4 Fases Semanais do Tratamento (Progresso dos 30 Dias em Grid Compacto) -->
+              <div class="grid grid-cols-2 gap-2">
+                <div class="rounded-xl bg-white p-2.5 border border-forest/10 shadow-sm flex items-start gap-2">
+                  <span class="h-6 w-6 rounded-md bg-coral/10 text-coral font-black text-[10px] flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    S1
+                  </span>
+                  <div>
+                    <h4 class="font-bold text-forest text-xs">Semana 1: Fundamento</h4>
+                    <p class="text-[10px] text-muted mt-0.5 leading-snug">Silêncio do ruído mental e da agitação.</p>
+                  </div>
+                </div>
+
+                <div class="rounded-xl bg-white p-2.5 border border-forest/10 shadow-sm flex items-start gap-2">
+                  <span class="h-6 w-6 rounded-md bg-coral/10 text-coral font-black text-[10px] flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    S2
+                  </span>
+                  <div>
+                    <h4 class="font-bold text-forest text-xs">Semana 2: Ritmo</h4>
+                    <p class="text-[10px] text-muted mt-0.5 leading-snug">Sono profundo e despertar mais leve.</p>
+                  </div>
+                </div>
+
+                <div class="rounded-xl bg-white p-2.5 border border-forest/10 shadow-sm flex items-start gap-2">
+                  <span class="h-6 w-6 rounded-md bg-coral/10 text-coral font-black text-[10px] flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    S3
+                  </span>
+                  <div>
+                    <h4 class="font-bold text-forest text-xs">Semana 3: Constância</h4>
+                    <p class="text-[10px] text-muted mt-0.5 leading-snug">Paciência, foco e clareza na rotina.</p>
+                  </div>
+                </div>
+
+                <div class="rounded-xl bg-white p-2.5 border border-forest/10 shadow-sm flex items-start gap-2">
+                  <span class="h-6 w-6 rounded-md bg-coral/10 text-coral font-black text-[10px] flex items-center justify-center shrink-0 border border-coral/20 mt-0.5">
+                    S4
+                  </span>
+                  <div>
+                    <h4 class="font-bold text-forest text-xs">Semana 4: Propósito</h4>
+                    <p class="text-[10px] text-muted mt-0.5 leading-snug">Calma natural duradoura consolidada.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna Direita: O Card de Entrega Completo & Chamada para Ação -->
+            <div class="reveal rounded-2xl bg-white p-5 xl:p-6 border border-forest/15 shadow-card flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 border-b border-forest/10">
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-forest">Tudo Incluso na Sua Encomenda</span>
+                  <span class="rounded-full bg-forest/10 px-2 py-0.5 text-[11px] font-bold text-forest">Ciclo Completo</span>
+                </div>
+
+                <!-- Lista de Itens Inclusos com Ícones Delicados -->
+                <div class="mt-3.5 space-y-2.5">
+                  <div class="flex items-start gap-2.5">
+                    <div class="h-6 w-6 rounded-lg bg-forest/10 text-forest flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">4 Caixas Semanais com Princípios Puros</h3>
+                      <p class="text-[11px] xl:text-xs text-muted leading-tight">
+                        Porção nobre fracionada exatamente para as 4 etapas do tratamento.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <div class="h-6 w-6 rounded-lg bg-forest/10 text-forest flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">Guia Físico Ilustrado com Passo a Passo</h3>
+                      <p class="text-[11px] xl:text-xs text-muted leading-tight">
+                        Manual impresso para preparar sua infusão em menos de 5 minutos diários.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <div class="h-6 w-6 rounded-lg bg-forest/10 text-forest flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">Acompanhamento e Suporte no WhatsApp</h3>
+                      <p class="text-[11px] xl:text-xs text-muted leading-tight">
+                        Linha direta com a nossa equipe especializada ao longo dos 30 dias.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <div class="h-6 w-6 rounded-lg bg-forest/10 text-forest flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">Envio Seguro com Código de Rastreamento</h3>
+                      <p class="text-[11px] xl:text-xs text-muted leading-tight">
+                        Despacho prioritário para todo o Brasil com acompanhamento no celular.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Box de Garantia Blindada 30 Dias -->
+                <div class="mt-4 rounded-xl bg-[#f6eee2] p-3 border border-forest/10 flex items-start gap-2.5">
+                  <div class="h-7 w-7 rounded-lg bg-coral/15 text-coral flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-forest text-xs">Risco Zero: Garantia Incondicional de 30 Dias</h4>
+                    <p class="text-[11px] text-muted leading-snug">
+                      Se não sentir seu sono e calma transformados, nós devolvemos o seu investimento integralmente.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botão CTA Desktop -->
+              <div class="mt-4 pt-3.5 border-t border-forest/10 text-center">
+                <a 
+                  data-cta="oferta-desktop" 
+                  href={checkoutUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-cta focusable flex w-full items-center justify-center rounded-full bg-coral hover:bg-[#b84e32] py-3.5 text-sm xl:text-base font-extrabold text-white shadow-lg transition"
+                >
+                  Começar Meu Protocolo de 30 Dias &rarr;
+                </a>
+                <p class="mt-1.5 text-[11px] text-muted">
+                  ✓ Lote artesanal limitado &bull; Despacho imediato com nota fiscal
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- LAYOUT MOBILE (Preservando conforto de rolagem e impacto visual) -->
+          <div class="block lg:hidden">
+            
+            <!-- Foto do Unboxing com Inspiração no Celular -->
+            <div class="reveal relative overflow-hidden rounded-2xl border border-forest/15 shadow-sm bg-sand/30">
+              <Image 
+                src={photoUnboxHorizontal} 
+                alt="A caixa aberta do Método Malach com as 4 caixas semanais" 
+                widths={[480, 640]} 
+                sizes="92vw" 
+                format="webp" 
+                quality={92} 
+                class="h-56 w-full object-cover" 
+              />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/90 via-forest/40 to-transparent p-3 pt-6 text-center">
+                <p class="text-xs italic text-cream font-medium">
+                  “A natureza nos ensina. A fé nos sustenta. A gratidão nos transforma.”
+                </p>
+              </div>
+            </div>
+
+            <!-- As 4 Fases no Celular (Grid 2x2 Clean) -->
+            <div class="reveal mt-4 grid grid-cols-2 gap-2">
+              <div class="rounded-xl bg-white p-3 border border-forest/10 shadow-sm">
+                <span class="inline-block rounded-md bg-coral/10 text-coral font-black text-[11px] px-1.5 py-0.5 mb-1">Semana 1</span>
+                <p class="text-xs font-bold text-forest">Fundamento</p>
+                <p class="text-[11px] text-muted leading-tight mt-0.5">Silêncio do ruído mental</p>
+              </div>
+
+              <div class="rounded-xl bg-white p-3 border border-forest/10 shadow-sm">
+                <span class="inline-block rounded-md bg-coral/10 text-coral font-black text-[11px] px-1.5 py-0.5 mb-1">Semana 2</span>
+                <p class="text-xs font-bold text-forest">Ritmo</p>
+                <p class="text-[11px] text-muted leading-tight mt-0.5">Sono profundo reparador</p>
+              </div>
+
+              <div class="rounded-xl bg-white p-3 border border-forest/10 shadow-sm">
+                <span class="inline-block rounded-md bg-coral/10 text-coral font-black text-[11px] px-1.5 py-0.5 mb-1">Semana 3</span>
+                <p class="text-xs font-bold text-forest">Constância</p>
+                <p class="text-[11px] text-muted leading-tight mt-0.5">Foco e paciência diária</p>
+              </div>
+
+              <div class="rounded-xl bg-white p-3 border border-forest/10 shadow-sm">
+                <span class="inline-block rounded-md bg-coral/10 text-coral font-black text-[11px] px-1.5 py-0.5 mb-1">Semana 4</span>
+                <p class="text-xs font-bold text-forest">Propósito</p>
+                <p class="text-[11px] text-muted leading-tight mt-0.5">Calma natural duradoura</p>
+              </div>
+            </div>
+
+            <!-- O que está incluso no Celular -->
+            <div class="reveal mt-4 rounded-2xl bg-white p-5 border border-forest/15 shadow-sm space-y-3.5">
+              <h3 class="font-extrabold text-forest text-sm border-b border-forest/10 pb-2.5">
+                Tudo o que chega na sua casa:
+              </h3>
+
+              <div class="flex items-start gap-2.5 text-xs">
+                <span class="text-leaf font-bold text-sm shrink-0">✓</span>
+                <div>
+                  <strong class="text-forest">4 Caixas Semanais:</strong>
+                  <span class="text-muted ml-1">Porções exatas dos princípios ativos puros.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs">
+                <span class="text-leaf font-bold text-sm shrink-0">✓</span>
+                <div>
+                  <strong class="text-forest">Guia Físico de Infusão:</strong>
+                  <span class="text-muted ml-1">Preparo rápido em menos de 5 minutos.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs">
+                <span class="text-leaf font-bold text-sm shrink-0">✓</span>
+                <div>
+                  <strong class="text-forest">Suporte no WhatsApp:</strong>
+                  <span class="text-muted ml-1">Acompanhamento durante os 30 dias.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs">
+                <span class="text-leaf font-bold text-sm shrink-0">✓</span>
+                <div>
+                  <strong class="text-forest">Envio com Rastreamento:</strong>
+                  <span class="text-muted ml-1">Entrega segura com código dos Correios.</span>
+                </div>
+              </div>
+
+              <!-- Garantia Mobile -->
+              <div class="mt-3 pt-3 border-t border-forest/10 flex items-center gap-3">
+                <div class="h-8 w-8 rounded-lg bg-coral/10 text-coral flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="text-xs">
+                  <strong class="text-forest">Garantia Blindada de 30 Dias</strong>
+                  <p class="text-muted text-[11px]">Satisfação completa ou devolução integral do seu valor.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão CTA Mobile -->
+            <div class="reveal mt-5 text-center">
+              <a 
+                data-cta="oferta-mobile" 
+                href={checkoutUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-cta focusable flex w-full items-center justify-center rounded-full bg-coral hover:bg-[#b84e32] py-4 text-base font-extrabold text-white shadow-lg transition"
+              >
+                Começar Meu Protocolo de 30 Dias
+              </a>
+              <p class="mt-2 text-xs text-muted">
+                ✓ Lote artesanal limitado &bull; Envio seguro para todo o Brasil
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROVAS COMPLEMENTARES EM MENSAGENS -->
+      <section class="py-8 sm:py-12 bg-paper border-b border-forest/10 overflow-hidden">
+        <div class="container-page">
+          <div class="reveal max-w-2xl text-center mx-auto mb-6 sm:mb-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-leaf">Mais Relatos</span>
+            <h2 class="display text-[1.8rem] sm:text-[clamp(2.2rem,4.5vw,3.6rem)] text-forest font-semibold mt-1">
+              Mensagens espontâneas de quem tomou a decisão.
+            </h2>
+            <p class="mt-1.5 text-xs sm:text-sm text-muted">
+              Prints reais recebidos em nosso suporte e redes sociais.
+            </p>
+
+            <!-- Sinalização no Celular que dá pra passar pro lado -->
+            <p class="mt-3 text-xs font-bold text-coral sm:hidden inline-flex items-center gap-1.5 rounded-full bg-coral/10 border border-coral/20 px-3 py-1">
+              <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+              <span>Deslize para o lado para ver mais prints</span>
+            </p>
+          </div>
+
+          <div class="testimonial-track -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {imageTestimonials.map((src, i) => (
+              <figure class={`reveal w-[68vw] max-w-[270px] shrink-0 snap-center overflow-hidden rounded-2xl border border-forest/10 bg-white p-2.5 shadow-card sm:w-auto sm:max-w-none ${i % 2 === 1 ? 'sm:mt-6' : ''}`}>
+                <div class="max-h-[350px] sm:max-h-none overflow-hidden rounded-xl flex items-start justify-center bg-[#111b21]">
+                  <Image 
+                    src={src} 
+                    alt={`Depoimento de cliente ${i + 1}`} 
+                    widths={[280, 420]} 
+                    sizes="(min-width: 1024px) 19vw, (min-width: 640px) 48vw, 68vw" 
+                    format="webp" 
+                    quality={85} 
+                    loading="lazy" 
+                    class="h-auto w-full rounded-xl object-contain object-top" 
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+
+          <!-- Indicador de Navegação em Bolinhas no Celular -->
+          <div class="mt-4 sm:hidden flex items-center justify-center gap-1.5 text-coral">
+            <span class="w-5 h-1.5 rounded-full bg-coral"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-coral/30"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-coral/30"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-coral/30"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-coral/30"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ DIRETO E SEM RODEIOS -->
+      <section class="section-pad bg-sand/20 border-b border-forest/10">
+        <div class="container-page max-w-3xl">
+          <div class="reveal text-center mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-leaf">Dúvidas Frequentes</span>
+            <h2 class="display text-[clamp(2.2rem,4.5vw,3.6rem)] text-forest font-semibold mt-2">
+              Tudo o que você precisa saber.
+            </h2>
+          </div>
+
+          <div class="reveal divide-y divide-forest/15 border-y border-forest/15">
+            {faqs.map((faq) => (
+              <details class="group">
+                <summary class="focusable flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-bold text-forest text-base sm:text-lg">
+                  <span>{faq.q}</span>
+                  <span aria-hidden="true" class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-forest/20 text-lg transition group-open:rotate-45">+</span>
+                </summary>
+                <p class="pb-5 pr-6 text-sm sm:text-base leading-relaxed text-muted">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAMADA FINAL DE DECISÃO (ESTILO MONOPRODUTO) -->
+      <section class="bg-forest-deep py-16 text-center text-cream sm:py-24">
+        <div class="container-page max-w-3xl reveal">
+          <span class="text-xs font-bold uppercase tracking-widest text-gold">Sua Escolha Hoje</span>
+          
+          <h2 class="display text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[1.05] text-cream font-semibold mt-3">
+            O alívio da sua mente está a um passo de distância.
+          </h2>
+          
+          <p class="mt-5 text-base sm:text-lg text-cream/75 leading-relaxed">
+            Você pode continuar lutando sozinho contra o cansaço e a agitação mental, ou experimentar um protocolo natural testado e aprovado com garantia incondicional de 30 dias.
+          </p>
+
+          <div class="mt-8 flex flex-col items-center gap-3">
+            <a 
+              data-cta="final" 
+              href={checkoutUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="focusable inline-flex min-h-14 items-center justify-center rounded-full bg-coral px-10 py-4 font-bold text-white shadow-warm transition hover:bg-[#c65536] hover:-translate-y-0.5 text-base sm:text-lg"
+            >
+              Começar Meus 30 Dias Agora
+            </a>
+            <span class="text-xs text-cream/70 flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span>Checkout blindado e seguro &bull; Envio com rastreio</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RODAPÉ RESPONSÁVEL COM DISCLAIMER -->
+    <footer class="bg-[#071a15] py-10 text-cream/60 text-xs border-t border-white/10">
+      <div class="container-page flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <Logo class="text-gold" />
+          <p class="mt-3 max-w-xl text-cream/50 leading-relaxed">
+            <strong>Aviso Legal de Saúde:</strong> Produto de origem vegetal. O Método Malach não prescreve tratamentos médicos e não substitui o acompanhamento de profissionais habilitados de saúde. Em caso de gravidez, amamentação ou uso de medicamentos contínuos, consulte seu médico.
+          </p>
+        </div>
+        <div class="text-cream/50 md:text-right space-y-1">
+          <p>© {new Date().getFullYear()} Método Malach. Todos os direitos reservados.</p>
+          <p>Compra segura e entrega garantida para todo o território nacional.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA (DISCRETO E CONVERTEDOR) -->
+    <div id="mobile-cta" class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-forest/10 bg-paper/95 p-3 pb-[max(.75rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur transition-transform duration-300 sm:hidden">
+      <a 
+        data-cta="sticky" 
+        href={checkoutUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="focusable flex min-h-12 items-center justify-center rounded-full bg-coral px-4 text-center font-bold text-white text-sm"
+      >
+        Garantir Meu Protocolo de 30 Dias
+      </a>
+    </div>
+
+    <script>
+      const allowed = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      const params = new URLSearchParams(location.search);
+      document.querySelectorAll<HTMLAnchorElement>('[data-cta]').forEach((link) => {
+        const url = new URL(link.href);
+        allowed.forEach((key) => { const value = params.get(key); if (value) url.searchParams.set(key, value); });
+        link.href = url.toString();
+        link.addEventListener('click', () => window.dispatchEvent(new CustomEvent('malach:cta', { detail: { id: link.dataset.cta } })));
+      });
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: .1 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      const hero = document.querySelector('#inicio');
+      const sticky = document.querySelector('#mobile-cta');
+      if (hero && sticky) new IntersectionObserver(([entry]) => sticky.classList.toggle('translate-y-full', Boolean(entry?.isIntersecting)), { threshold: .05 }).observe(hero);
+    </script>
+  </body>
+</html>
