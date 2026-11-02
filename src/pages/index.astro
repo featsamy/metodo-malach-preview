@@ -22,18 +22,21 @@ const checkoutUrl = 'https://loja.metodomalach.com.br/produtos/';
 const videoTestimonials = [
   {
     src: '/videos/depoimento-1.mp4',
+    poster: '/videos/poster-1.jpg',
     name: 'Relato em Vídeo',
     tag: 'Ansiedade e Mente Acelerada',
     caption: '“A cabeça finalmente parou de girar. Consegui ter noites de sono que há anos eu não tinha.”'
   },
   {
     src: '/videos/depoimento-2.mp4',
+    poster: '/videos/poster-2.jpg',
     name: 'Relato em Vídeo',
     tag: 'Disposição Diária',
     caption: '“Acordava já cansado e sem ânimo para nada. O protocolo me devolveu a vontade de viver o dia.”'
   },
   {
     src: '/videos/depoimento-3.mp4',
+    poster: '/videos/poster-3.jpg',
     name: 'Relato em Vídeo',
     tag: 'Calma e Presença',
     caption: '“Voltei a ter paciência com meus filhos e foco no trabalho, sem aquela agitação no peito.”'
@@ -404,16 +407,28 @@ const faqs = [
             <div class="testimonial-track -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
               {videoTestimonials.map((v) => (
                 <div class="reveal w-[80vw] shrink-0 snap-center sm:w-auto flex flex-col rounded-3xl bg-sand/30 p-3.5 sm:p-4 border border-forest/10 shadow-card">
-                  <div class="relative overflow-hidden rounded-2xl bg-black aspect-[9/16] w-full max-h-[380px] lg:max-h-[420px] shadow-inner flex items-center justify-center">
+                  <div class="video-card-container relative overflow-hidden rounded-2xl bg-black aspect-[9/16] w-full max-h-[380px] lg:max-h-[420px] shadow-inner flex items-center justify-center group cursor-pointer">
                     <video 
                       src={v.src} 
-                      controls 
+                      poster={v.poster}
                       playsinline 
                       preload="metadata" 
-                      class="h-full w-full object-cover rounded-2xl"
+                      class="video-el h-full w-full object-cover rounded-2xl"
                     >
                       Vídeo não suportado.
                     </video>
+                    <!-- Botão de Play Elegante -->
+                    <button 
+                      type="button" 
+                      aria-label="Assistir relato" 
+                      class="play-btn absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/35 transition-all cursor-pointer"
+                    >
+                      <div class="w-14 h-14 rounded-full bg-forest/90 backdrop-blur-md text-cream flex items-center justify-center shadow-xl border border-cream/20 transform group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 fill-current translate-x-0.5 text-cream" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </button>
                   </div>
                   <div class="mt-3.5 px-1">
                     <span class="inline-block rounded-full bg-forest/10 px-2.5 py-0.5 text-xs font-semibold text-forest">
@@ -1212,6 +1227,52 @@ const faqs = [
       const hero = document.querySelector('#inicio');
       const sticky = document.querySelector('#mobile-cta');
       if (hero && sticky) new IntersectionObserver(([entry]) => sticky.classList.toggle('translate-y-full', Boolean(entry?.isIntersecting)), { threshold: .05 }).observe(hero);
+
+      // Controle de Vídeos de Depoimentos (evita glitch de controles nativos no Android/iOS)
+      document.querySelectorAll('.video-card-container').forEach((container) => {
+        const video = container.querySelector<HTMLVideoElement>('.video-el');
+        const playBtn = container.querySelector<HTMLElement>('.play-btn');
+        if (!video) return;
+
+        const startPlaying = () => {
+          // Pausa qualquer outro vídeo ativo para não sobrepor áudio
+          document.querySelectorAll<HTMLVideoElement>('.video-el').forEach((other) => {
+            if (other !== video && !other.paused) {
+              other.pause();
+              other.controls = false;
+              const otherBtn = other.closest('.video-card-container')?.querySelector<HTMLElement>('.play-btn');
+              if (otherBtn) otherBtn.style.display = 'flex';
+            }
+          });
+
+          video.controls = true;
+          video.play().catch(() => {});
+          if (playBtn) playBtn.style.display = 'none';
+        };
+
+        if (playBtn) {
+          playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            startPlaying();
+          });
+        }
+
+        video.addEventListener('click', () => {
+          if (video.paused && !video.controls) {
+            startPlaying();
+          }
+        });
+
+        video.addEventListener('play', () => {
+          video.controls = true;
+          if (playBtn) playBtn.style.display = 'none';
+        });
+
+        video.addEventListener('ended', () => {
+          video.controls = false;
+          if (playBtn) playBtn.style.display = 'flex';
+        });
+      });
     </script>
   </body>
 </html>
