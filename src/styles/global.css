@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 .hidden { display: none !important; }
+@media (min-width: 768px) {
+  .md\:hidden { display: none !important; }
+  .md\:grid { display: grid !important; }
+  .md\:block { display: block !important; }
+  .md\:flex { display: flex !important; }
+  .md\:inline { display: inline !important; }
+}
 @media (min-width: 1024px) {
   .lg\:hidden { display: none !important; }
   .lg\:grid { display: grid !important; }
   .lg\:block { display: block !important; }
   .lg\:flex { display: flex !important; }
+  .lg\:inline { display: inline !important; }
 }
 
 @theme {
