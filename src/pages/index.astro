@@ -24,22 +24,22 @@ const videoTestimonials = [
     src: '/videos/depoimento-1.mp4',
     poster: '/videos/poster-1.jpg',
     name: 'Relato em Vídeo',
-    tag: 'Ansiedade e Mente Acelerada',
-    caption: '“A cabeça finalmente parou de girar. Consegui ter noites de sono que há anos eu não tinha.”'
+    tag: 'Fibromialgia e Síndrome do Pânico',
+    caption: '“Diagnosticada com fibromialgia e síndrome do pânico, Jacira relata suas melhoras após começar a utilizar o extrato.”'
   },
   {
     src: '/videos/depoimento-2.mp4',
     poster: '/videos/poster-2.jpg',
     name: 'Relato em Vídeo',
-    tag: 'Disposição Diária',
-    caption: '“Acordava já cansado e sem ânimo para nada. O protocolo me devolveu a vontade de viver o dia.”'
+    tag: 'Saúde e Disposição',
+    caption: '“Depois de conviver com problemas de saúde e tomar diversos medicamentos, Tiago compartilha sua experiência com o Método Malach.”'
   },
   {
     src: '/videos/depoimento-3.mp4',
     poster: '/videos/poster-3.jpg',
     name: 'Relato em Vídeo',
-    tag: 'Calma e Presença',
-    caption: '“Voltei a ter paciência com meus filhos e foco no trabalho, sem aquela agitação no peito.”'
+    tag: 'Ansiedade e Bem-Estar',
+    caption: '“Priscila conta sua experiência com o extrato e relata mudanças na ansiedade, agitação e bem-estar.”'
   }
 ];
 
@@ -67,7 +67,7 @@ const comparisonRows = [
   },
   {
     criterion: 'Suporte Durante o Uso',
-    malach: 'Guia físico dos 30 dias + suporte atencioso',
+    malach: 'Guia de preparo dos 30 dias + suporte atencioso',
     others: 'Você recebe um pote e se vira sozinho'
   }
 ];
@@ -85,11 +85,11 @@ const imageTestimonials = [
 const faqs = [
   {
     q: 'O que é o Método Malach e para quem ele é indicado?',
-    a: 'O Método Malach é um protocolo natural desenvolvido para quem vive sobrecarregado por ansiedade, depressão, estresse crônico ou mente hiperativa. Usamos exclusivamente a parte nobre de plantas medicinais, maturadas por quase 60 dias, para restaurar o equilíbrio do seu sistema nervoso sem o peso de remédios sintéticos.'
+    a: 'O Método Malach é um protocolo natural desenvolvido para quem vive sobrecarregado por ansiedade, depressão, estresse crônico ou mente hiperativa. Usamos exclusivamente a parte nobre de plantas <em>Theobroma cacao L</em> e <em>Cecropia pachystachya</em>, maturadas por quase 60 dias, para restaurar o equilíbrio do seu sistema nervoso sem o peso de remédios sintéticos.'
   },
   {
     q: 'O que exatamente chega na minha casa ao comprar o kit?',
-    a: 'Você recebe a caixa do Método Malach com 4 sachês especiais (totalizando o ciclo de 30 dias), acompanhada do Guia Prático com o passo a passo de preparo diário e acesso ao canal de suporte para acompanhar cada etapa da sua evolução.'
+    a: 'Você recebe a caixa do Método Malach com 4 sachês especiais (totalizando o ciclo de 30 dias), acompanhada do vídeo passo a passo de preparo diário e acesso ao canal de suporte para acompanhar cada etapa da sua evolução.'
   },
   {
     q: 'Será que funciona comigo se eu já tentei outros métodos?',
@@ -97,15 +97,11 @@ const faqs = [
   },
   {
     q: 'Como devo tomar na minha rotina?',
-    a: 'O preparo é simples e leva menos de 5 minutos por dia. O protocolo é dividido em 4 etapas conscientes (Fundamento, Ritmo, Constância e Propósito) para acompanhar seu corpo progressivamente ao longo das 4 semanas.'
+    a: 'Uma vez por semana, você prepara o extrato por infusão, guarda na geladeira e toma durante os dias seguintes. Simples, prático e sem rotina complicada. O Guia que vem no kit mostra o passo a passo de cada uma das 4 semanas.'
   },
   {
     q: 'Posso usar junto com meus medicamentos de uso contínuo?',
-    a: 'Sim, o Método Malach é um apoio natural e você não deve interromper nenhum tratamento prescrito por conta própria. Recomendamos manter seu acompanhamento médico normal.'
-  },
-  {
-    q: 'E se eu não sentir resultado? Qual é a garantia?',
-    a: 'Confiamos plenamente na pureza do nosso lote. Se ao longo do protocolo de 30 dias você não sentir o alívio e a transformação no seu bem-estar, basta entrar em contato com nosso suporte para solicitar o reembolso conforme as diretrizes do nosso checkout seguro.'
+    a: 'O Método Malach é um extrato natural, sem intercorrências identificadas até hoje no uso junto a outros tratamentos. Mesmo assim, converse com seu médico antes de começar e nunca interrompa um tratamento por conta própria.'
   }
 ];
 ---
@@ -236,7 +232,7 @@ const faqs = [
             <!-- 3. Meio: Parágrafo (no mobile enxuto e direto; no desktop detalhado e editorial) -->
             <div class="relative z-20 mt-2 sm:mt-4 max-w-xl lg:max-w-[58%] xl:max-w-[61%]">
               <p class="text-sm sm:text-base lg:text-lg leading-relaxed text-muted">
-                <span class="lg:hidden">O protocolo natural puro que silencia a mente agitada e devolve o sono profundo — sem remédios sintéticos e sem dependência.</span>
+                <span class="lg:hidden">Mais tranquilidade para sua mente e leveza para suas noites, com uma composição de origem natural.</span>
                 <span class="hidden lg:inline">Para você que acorda cansado, vive com a mente acelerada e quer voltar a ter paz. O <strong>Método Malach</strong> é um protocolo natural puro de 30 dias feito a partir da parte nobre de plantas medicinais, silenciando a inquietação e devolvendo o seu sono — sem remédios sintéticos e sem dependência.</span>
               </p>
             </div>
@@ -277,7 +273,7 @@ const faqs = [
                   <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
                   </svg>
-                  <span>Sono reparador da primeira à última hora da noite</span>
+                  <span>Durma melhor e tenha noites mais tranquilas.</span>
                 </div>
                 <div class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 20 20" fill="currentColor">
@@ -306,10 +302,10 @@ const faqs = [
                 </a>
                 <span class="text-xs text-muted text-center sm:text-left flex items-center justify-center sm:justify-start gap-1.5">
                   <svg class="w-4 h-4 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                   </svg>
-                  <span>Garantia de 30 dias</span>
+                  <span>Ambiente seguro &bull; Envio com rastreio</span>
                 </span>
               </div>
             </div>
@@ -363,17 +359,16 @@ const faqs = [
               <p class="text-xs text-muted mt-0.5">Uso seguro e sem sedação diurna</p>
             </div>
 
-            <!-- 4. Garantia de 30 Dias -->
+            <!-- 4. Preparo Artesanal -->
             <div class="flex flex-col items-center">
               <div class="h-10 w-10 flex items-center justify-center text-coral mb-1.5">
                 <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="9" r="6"/>
-                  <path d="m8.5 14.5-1.5 6.5 5-2.5 5 2.5-1.5-6.5"/>
-                  <path d="m10 9 1.5 1.5L14 8"/>
+                  <circle cx="12" cy="12" r="9"/>
+                  <polyline points="12 6 12 12 16 14"/>
                 </svg>
               </div>
-              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Garantia de 30 Dias</p>
-              <p class="text-xs text-muted mt-0.5">Satisfação ou seu dinheiro de volta</p>
+              <p class="font-bold text-forest text-sm sm:text-base tracking-tight">Preparo Artesanal</p>
+              <p class="text-xs text-muted mt-0.5">Quase 60 dias de maturação por lote</p>
             </div>
 
           </div>
@@ -605,7 +600,7 @@ const faqs = [
               <div class="mt-5 rounded-2xl bg-forest/5 border border-forest/15 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="text-left">
                   <p class="text-xs font-semibold text-coral uppercase tracking-wider">Você não precisa viver no limite</p>
-                  <p class="text-xs xl:text-sm font-bold text-forest mt-0.5">Existe um caminho 100% natural para recuperar sua paz e disposição.</p>
+                  <p class="text-xs xl:text-sm font-bold text-forest mt-0.5">Existe um caminho 100% natural para te ajudar a recuperar sua paz e disposição.</p>
                 </div>
                 <a 
                   data-cta="identificacao-desktop" 
@@ -706,11 +701,11 @@ const faqs = [
                   Começar Meu Protocolo
                 </a>
                 <div class="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-muted">
-                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
+                  <svg class="w-3.5 h-3.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                   </svg>
-                  <span>Garantia de 30 dias com devolução integral</span>
+                  <span>Ambiente de pagamento seguro &bull; Envio com rastreio</span>
                 </div>
               </div>
             </div>
@@ -729,7 +724,7 @@ const faqs = [
               Por que o Método Malach é diferente?
             </h2>
             <p class="mt-3 text-base text-muted">
-              Veja a diferença entre tratar seu corpo com respeito botânico versus empilhar soluções passageiras.
+              Conheça as vantagens em tratar seu corpo com respeito botânico.
             </p>
           </div>
 
@@ -872,7 +867,7 @@ const faqs = [
                       ✓
                     </div>
                     <div>
-                      <h3 class="font-bold text-forest text-xs xl:text-sm">4 Caixas Semanais com Princípios Puros</h3>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">4 sachês, um para cada semana</h3>
                       <p class="text-[11px] xl:text-xs text-muted leading-tight">
                         Porção nobre fracionada exatamente para as 4 etapas do tratamento.
                       </p>
@@ -884,9 +879,9 @@ const faqs = [
                       ✓
                     </div>
                     <div>
-                      <h3 class="font-bold text-forest text-xs xl:text-sm">Guia Físico Ilustrado com Passo a Passo</h3>
+                      <h3 class="font-bold text-forest text-xs xl:text-sm">Vídeo passo a passo do preparo</h3>
                       <p class="text-[11px] xl:text-xs text-muted leading-tight">
-                        Manual impresso para preparar sua infusão em menos de 5 minutos diários.
+                        Orientações práticas para preparar sua infusão em menos de 5 minutos diários.
                       </p>
                     </div>
                   </div>
@@ -913,22 +908,6 @@ const faqs = [
                         Despacho prioritário para todo o Brasil com acompanhamento no celular.
                       </p>
                     </div>
-                  </div>
-                </div>
-
-                <!-- Box de Garantia Blindada 30 Dias -->
-                <div class="mt-4 rounded-xl bg-[#f6eee2] p-3 border border-forest/10 flex items-start gap-2.5">
-                  <div class="h-7 w-7 rounded-lg bg-coral/15 text-coral flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      <path d="m9 12 2 2 4-4"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-forest text-xs">Risco Zero: Garantia Incondicional de 30 Dias</h4>
-                    <p class="text-[11px] text-muted leading-snug">
-                      Se não sentir seu sono e calma transformados, nós devolvemos o seu investimento integralmente.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1010,16 +989,16 @@ const faqs = [
               <div class="flex items-start gap-2.5 text-xs">
                 <span class="text-leaf font-bold text-sm shrink-0">✓</span>
                 <div>
-                  <strong class="text-forest">4 Caixas Semanais:</strong>
-                  <span class="text-muted ml-1">Porções exatas dos princípios ativos puros.</span>
+                  <strong class="text-forest">4 sachês:</strong>
+                  <span class="text-muted ml-1">Um para cada semana do protocolo.</span>
                 </div>
               </div>
 
               <div class="flex items-start gap-2.5 text-xs">
                 <span class="text-leaf font-bold text-sm shrink-0">✓</span>
                 <div>
-                  <strong class="text-forest">Guia Físico de Infusão:</strong>
-                  <span class="text-muted ml-1">Preparo rápido em menos de 5 minutos.</span>
+                  <strong class="text-forest">Vídeo passo a passo:</strong>
+                  <span class="text-muted ml-1">Instruções claras do preparo correto.</span>
                 </div>
               </div>
 
@@ -1036,17 +1015,6 @@ const faqs = [
                 <div>
                   <strong class="text-forest">Envio com Rastreamento:</strong>
                   <span class="text-muted ml-1">Entrega segura com código dos Correios.</span>
-                </div>
-              </div>
-
-              <!-- Garantia Mobile -->
-              <div class="mt-3 pt-3 border-t border-forest/10 flex items-center gap-3">
-                <div class="h-8 w-8 rounded-lg bg-coral/10 text-coral flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div class="text-xs">
-                  <strong class="text-forest">Garantia Blindada de 30 Dias</strong>
-                  <p class="text-muted text-[11px]">Satisfação completa ou devolução integral do seu valor.</p>
                 </div>
               </div>
             </div>
@@ -1141,7 +1109,7 @@ const faqs = [
                   <span>{faq.q}</span>
                   <span aria-hidden="true" class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-forest/20 text-lg transition group-open:rotate-45">+</span>
                 </summary>
-                <p class="pb-5 pr-6 text-sm sm:text-base leading-relaxed text-muted">{faq.a}</p>
+                <p class="pb-5 pr-6 text-sm sm:text-base leading-relaxed text-muted" set:html={faq.a} />
               </details>
             ))}
           </div>
@@ -1158,7 +1126,7 @@ const faqs = [
           </h2>
           
           <p class="mt-5 text-base sm:text-lg text-cream/75 leading-relaxed">
-            Você pode continuar lutando sozinho contra o cansaço e a agitação mental, ou experimentar um protocolo natural testado e aprovado com garantia incondicional de 30 dias.
+            Você pode continuar lutando sozinho contra o cansaço e a agitação mental, ou dar o primeiro passo hoje com um protocolo natural, feito para devolver sua calma e disposição.
           </p>
 
           <div class="mt-8 flex flex-col items-center gap-3">
